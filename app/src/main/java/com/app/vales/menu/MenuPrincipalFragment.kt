@@ -10,6 +10,10 @@ import com.app.vales.R
 
 class MenuPrincipalFragment : Fragment() {
 
+    fun newInstance(): MenuPrincipalFragment? {
+        return MenuPrincipalFragment()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import com.app.vales.R
 
 class ModuloSucursalFragment : Fragment() {
+    fun newInstance(): ModuloSucursalFragment? {
+        return ModuloSucursalFragment()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -5,11 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.app.vales.MainActivity
 import com.app.vales.R
+import com.app.vales.databinding.FragmentMenuPrincipalBinding
 
 
 class MenuPrincipalFragment : Fragment() {
 
+     private var _binding  : FragmentMenuPrincipalBinding? = null
+    private val   binding get() =  _binding!!
     fun newInstance(): MenuPrincipalFragment? {
         return MenuPrincipalFragment()
     }
@@ -18,8 +22,19 @@ class MenuPrincipalFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_menu_principal, container, false)
+        _binding = FragmentMenuPrincipalBinding.inflate(inflater, container, false)
+        setupView()
+        confIU()
+        return binding.root
     }
+     fun setupView() {
+         binding.btnSucursal.setOnClickListener{
+             (activity as MainActivity?)!!.verModuloSucursalFragment()
+         }
+
+     }
+     fun confIU() {
+
+     }
 
 }

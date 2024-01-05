@@ -61,7 +61,7 @@
                 app:cardElevation="6dp">
 
                 <LinearLayout
-                    android:id="@+id/btnconteo"
+                    android:id="@+id/btnSucursal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/background_selector"
@@ -94,7 +94,7 @@
                 app:cardElevation="6dp">
 
                 <LinearLayout
-                    android:id="@+id/btnreconteo"
+                    android:id="@+id/btnConductor"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/background_selector"
@@ -127,7 +127,7 @@
                 app:cardElevation="6dp">
 
                 <LinearLayout
-                    android:id="@+id/btnCargaMasiva"
+                    android:id="@+id/btnAdministrador"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/background_selector"

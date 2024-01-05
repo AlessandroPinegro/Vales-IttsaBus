@@ -3,8 +3,12 @@ package com.app.vales
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import com.app.vales.Login.LoginActivity
 import com.app.vales.databinding.ActivityMainBinding
 import com.app.vales.menu.MenuPrincipalFragment
+import com.app.vales.modulos.ModuloAdministradorFragment
+import com.app.vales.modulos.ModuloSucursalFragment
 import com.app.vales.service.FragmentService
 
 class MainActivity : AppCompatActivity(), FragmentService {
@@ -16,6 +20,10 @@ class MainActivity : AppCompatActivity(), FragmentService {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         this.verMenuPrincipalFragment()
+        supportFragmentManager.popBackStack(
+            LoginActivity::class.java.simpleName,
+            FragmentManager.POP_BACK_STACK_INCLUSIVE
+        )
     }
 
     private fun showFragment(fragment: Fragment) {
@@ -27,22 +35,31 @@ class MainActivity : AppCompatActivity(), FragmentService {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
         supportFragmentManager.executePendingTransactions()
         val currentFragment =
             supportFragmentManager.findFragmentById(binding.mainFragmentPlaceholder.id)
 
-      /*  if (currentFragment is LoginFragment) {
-            finishAffinity()
-        }else if (currentFragment is ProductosAsignadosFragment||currentFragment is LecturaMasivaFragment||currentFragment is ReconteoProductosFragment){
-            this.verMantenedorFragment()
-        }else if (currentFragment is MantendorFragment) {
-            finishAffinity()
-        }*/
+        if (currentFragment is ModuloAdministradorFragment) {
+            this.verMenuPrincipalFragment();
+        } else {
+            super.onBackPressed()
+        }
     }
 
     override fun verMenuPrincipalFragment() {
         val showFragment: MenuPrincipalFragment? = MenuPrincipalFragment().newInstance()
         showFragment(showFragment!!)
     }
+
+    override fun verModuloAdministradorFragment() {
+        val showFragment: ModuloAdministradorFragment? = ModuloAdministradorFragment().newInstance()
+        showFragment(showFragment!!)
+    }
+
+    override fun verModuloSucursalFragment() {
+        val showFragment: ModuloSucursalFragment? = ModuloSucursalFragment().newInstance()
+        showFragment(showFragment!!)
+    }
+
+
 }
